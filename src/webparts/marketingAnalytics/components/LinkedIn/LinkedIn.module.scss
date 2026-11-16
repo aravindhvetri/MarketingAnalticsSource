@@ -1,0 +1,388 @@
+/* ─── MAIN LAYOUT ───────────────────────── */
+.li-main {
+  min-height: 100vh;
+  background: #f6f8fc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── TOPBAR ───────────────────────── */
+.li-topbar {
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e6ebf5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+}
+
+.li-topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.li-page-title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.li-page-sub {
+  font-size: 12px;
+  color: #8a9bbf;
+}
+
+.li-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── CONTENT ───────────────────────── */
+.li-content {
+  padding: 20px 24px 50px;
+}
+
+/* ─── SECTION HEADER ───────────────────────── */
+.li-sec-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.li-sec-title-wrap {
+  display: flex;
+  gap: 10px;
+}
+
+.li-sec-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.li-sec-title {
+  font-weight: 700;
+}
+
+.li-sec-sub {
+  font-size: 12px;
+  color: #8a9bbf;
+}
+
+.li-sec-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* ─── BADGE ───────────────────────── */
+.li-source-badge {
+  background: #d1fae5;
+  color: #059669;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+/* ─── LOADING ───────────────────────── */
+.li-loading-bar {
+  height: 3px;
+  background: #eef1f8;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.li-loading-fill {
+  width: 40%;
+  height: 100%;
+  background: #1a6ef5;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* ─── GRID ───────────────────────── */
+.li-g5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.li-g2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.li-g-wide {
+  display: grid;
+  grid-template-columns: 2.3fr 1fr;
+  gap: 18px;
+}
+
+.li-mt {
+  margin-top: 16px;
+}
+
+/* ─── KPI ───────────────────────── */
+.li-kpi {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e8edf6;
+  transition: 0.2s;
+}
+
+.li-kpi:hover {
+  transform: translateY(-4px);
+}
+
+.li-kpi-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.li-kpi-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.li-kpi-delta.up {
+  color: green;
+}
+
+.li-kpi-delta.dn {
+  color: red;
+}
+
+.li-kpi-delta.flat {
+  color: gray;
+}
+
+.li-kpi-label {
+  font-size: 11px;
+  margin-top: 8px;
+  color: #8a9bbf;
+}
+
+.li-kpi-val {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.li-kpi-sub {
+  font-size: 12px;
+  color: #8a9bbf;
+}
+
+.li-kpi-accent {
+  height: 3px;
+  margin-top: 10px;
+}
+
+/* ─── CARD ───────────────────────── */
+.li-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e8edf6;
+}
+
+.li-card-head {
+  margin-bottom: 12px;
+}
+
+.li-card-title {
+  font-weight: 700;
+}
+
+.li-card-sub {
+  font-size: 12px;
+  color: #8a9bbf;
+}
+
+/* ONLY for bar charts */
+.li-card canvas {
+  width: 100% !important;
+}
+
+/* DONUT FIX */
+.li-donut-wrap {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.li-donut-wrap canvas {
+  width: 220px !important;
+  height: 220px !important;
+}
+
+/* ─── DONUT FIX ───────────────────────── */
+.li-donut-wrap {
+  height: 220px;
+  position: relative;
+}
+
+/* ─── TABLE ───────────────────────── */
+.li-tbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.li-tbl th {
+  text-align: left;
+  font-size: 11px;
+  color: #8a9bbf;
+}
+
+.li-tbl td {
+  padding: 8px 0;
+}
+
+/* ─── PILLS ───────────────────────── */
+.li-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.li-pill-blue { background: #e8f0fe; color: #1a6ef5; }
+.li-pill-violet { background: #ede9fe; color: #7c3aed; }
+.li-pill-green { background: #d1fae5; color: #059669; }
+.li-pill-teal { background: #e0f5fa; color: #0891b2; }
+.li-pill-amber { background: #fef3c7; color: #d97706; }
+.li-pill-orange { background: #ffedd5; color: #ea580c; }
+.li-pill-rose { background: #ffe4e6; color: #e11d48; }
+
+/* ─── TOP POST ───────────────────────── */
+.li-top-post {
+  background: linear-gradient(135deg, #1a6ef5, #0891b2);
+  border-radius: 16px;
+  padding: 20px;
+  color: #fff;
+}
+
+/* ─── BUTTONS FIX (IMPORTANT) ───────────────────────── */
+
+.li-connect-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f2;
+
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: #1b2231;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.li-connect-btn:hover {
+  border-color: #1a6ef5;
+  background: #eef4ff;
+  color: #1a6ef5;
+}
+
+/* REFRESH BUTTON */
+.li-refresh-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #1a6ef5;
+  color: #fff;
+
+  border: none;
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.li-refresh-btn:hover {
+  opacity: 0.9;
+}
+
+.li-post-label {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.li-post-title {
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+.li-post-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.li-ps {
+  font-size: 12px;
+}
+
+/* ─── EMPTY ───────────────────────── */
+.li-empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #8a9bbf;
+}
+
+.li-post-stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* each stat */
+.li-post-stats span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+/* DOT separator */
+.li-post-stats span:not(:last-child)::after {
+  content: "•";
+  margin-left: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* icon size */
+.li-post-stats span {
+  font-size: 12px;
+}
+
+.li-post-stats span strong {
+  font-weight: 600;
+}

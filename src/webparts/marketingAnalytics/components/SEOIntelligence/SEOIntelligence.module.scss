@@ -1,0 +1,552 @@
+.ymPicker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.ymIcon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.ymSelect {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  padding: 0 18px 0 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  outline: none;
+
+  &:focus {
+    color: #1a6ef5;
+  }
+}
+
+.ymDivider {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 400;
+  user-select: none;
+}
+$blue:    #1a6ef5;
+$teal:    #0891b2;
+$green:   #059669;
+$amber:   #d97706;
+$rose:    #e11d48;
+$purple:  #7c3aed;
+$gray:    #64748b;
+
+$surface:  #ffffff;
+$bg:       #f4f6fb;
+$border:   #e2e8f0;
+$text:     #1e293b;
+$muted:    #64748b;
+
+$radius:   12px;
+$shadow:   0 2px 12px rgba(0, 0, 0, 0.07);
+
+
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f5f9; /* light grey like image */
+  border-bottom: 1px solid #dbe3ef;
+  padding: 10px 18px;
+}
+
+/* LEFT SIDE */
+.topTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.topSub {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* RIGHT SIDE */
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* DATE BOX */
+.topDate {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: #334155;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.topBtnPrimary {
+  background: #1a6ef5;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.topBtnPrimary:hover {
+  background: #155bd6;
+}
+
+.topBtnSecondary {
+  background: #eef2f7;
+  border: 1px solid #dbe3ef;
+  color: #334155;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.topBtnSecondary:hover {
+  background: #e2e8f0;
+}
+.seoDashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: $bg;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: $text;
+}
+
+// ── Section Header ────────────────────────────────────────────────────────────
+.secHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.secTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.secTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: $text;
+  line-height: 1.2;
+}
+
+.secSub {
+  font-size: 12px;
+  color: $muted;
+  margin-top: 2px;
+}
+
+.secActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+// ── Badges ────────────────────────────────────────────────────────────────────
+.sourceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.badgeBlue {
+  background: #e8f0fe;
+  color: $blue;
+  border-color: #c7d9fd;
+}
+
+.badgeGreen {
+  background: #d1fae5;
+  color: $green;
+  border-color: #a7f3d0;
+}
+
+// ── Loading Bar ───────────────────────────────────────────────────────────────
+.loadingBar {
+  height: 3px;
+  background: $border;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.loadingFill {
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, $blue, $teal);
+  border-radius: 99px;
+  animation: loadSlide 1s ease-in-out infinite;
+}
+
+@keyframes loadSlide {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+// ── Grid Layouts ──────────────────────────────────────────────────────────────
+.g4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width: 1100px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px)  { grid-template-columns: 1fr; }
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+.mt {
+  margin-top: 4px;
+}
+
+// ── Card ──────────────────────────────────────────────────────────────────────
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 20px;
+  box-shadow: $shadow;
+  overflow: hidden;
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: $text;
+}
+
+.cardSub {
+  font-size: 11px;
+  color: $muted;
+  margin-top: 2px;
+}
+
+// ── KPI Card ──────────────────────────────────────────────────────────────────
+.kpi {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 18px 18px 14px;
+  box-shadow: $shadow;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kpiTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.kpiIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.kpiDelta {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.kpiLabel {
+  font-size: 11px;
+  color: $muted;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kpiVal {
+  font-size: 26px;
+  font-weight: 800;
+  color: $text;
+  line-height: 1.1;
+}
+
+.kpiSub {
+  font-size: 11px;
+  color: $muted;
+}
+
+.kpiAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+// ── Delta / Status Colors ─────────────────────────────────────────────────────
+.deltaUp {
+  color: $green;
+  background: #d1fae5;
+}
+
+.deltaDn {
+  color: $rose;
+  background: #ffe4e6;
+}
+
+.deltaFlat {
+  color: $muted;
+  background: #f1f5f9;
+}
+
+// For inline delta (table cells — no background pill)
+.delta {
+  font-size: 12px;
+  font-weight: 700;
+  
+  &.deltaUp  { color: $green; background: none; }
+  &.deltaDn  { color: $rose;  background: none; }
+  &.deltaFlat{ color: $muted; background: none; }
+}
+
+// ── Chart Wrapper ─────────────────────────────────────────────────────────────
+.chartWrapper {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  margin-top: 8px;
+
+  canvas {
+    max-width: 100%;
+  }
+}
+
+.emptyChart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 13px;
+  color: $muted;
+}
+
+// ── Table ─────────────────────────────────────────────────────────────────────
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  thead tr {
+    border-bottom: 1px solid $border;
+  }
+
+  th {
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: $muted;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s;
+
+    &:last-child { border-bottom: none; }
+    &:hover      { background: #f8fafc; }
+  }
+
+  td {
+    padding: 10px 10px;
+    color: $text;
+    vertical-align: middle;
+  }
+}
+
+// ── Pills ─────────────────────────────────────────────────────────────────────
+.pill {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pillGreen {
+  background: #d1fae5;
+  color: $green;
+}
+
+.pillRose {
+  background: #ffe4e6;
+  color: $rose;
+}
+
+.pillGray {
+  background: #f1f5f9;
+  color: $gray;
+}
+
+.pillAmber {
+  background: #fef3c7;
+  color: $amber;
+}
+
+.pillTeal {
+  background: #e0f5fa;
+  color: $teal;
+}
+
+// ── Backlinks Mini Metrics ────────────────────────────────────────────────────
+.miniM {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #f1f5f9;
+
+  &:last-of-type { border-bottom: none; }
+}
+
+.miniLabel {
+  font-size: 12px;
+  color: $muted;
+}
+
+.miniVal {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text;
+
+  &.deltaUp { color: $green; }
+  &.deltaDn { color: $rose;  }
+}
+
+.divider {
+  height: 1px;
+  background: $border;
+  margin: 14px 0;
+}
+
+// ── Keyword Summary Boxes ─────────────────────────────────────────────────────
+.kwSummaryRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.kwSummaryBox {
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.kwSummaryGreen {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.kwSummaryRose {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.kwSummaryGray {
+  background: #f8fafc;
+  border-color: $border;
+}
+
+.kwSummaryNum {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.kwSummaryLbl {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+// ── Empty State ───────────────────────────────────────────────────────────────
+.emptyState {
+  padding: 32px;
+  text-align: center;
+  font-size: 13px;
+  color: $muted;
+}

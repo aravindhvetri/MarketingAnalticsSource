@@ -1,0 +1,399 @@
+/* ══════════════════════════════════════════
+   DateRangePicker.module.scss
+   SPFX-compatible — uses CSS custom properties
+   matching your existing dashboard theme
+══════════════════════════════════════════ */
+
+/* Map theme variables (matches your HTML dashboard vars) */
+$blue:      #1a6ef5;
+$blue-lt:   #e8f0fe;
+$text:      #0f1c35;
+$text2:     #4a5a7a;
+$text3:     #8a9bbf;
+$border:    #e2e8f2;
+$border2:   #c8d3e8;
+$bg:        #f4f6fb;
+$bg2:       #eef1f8;
+$white:     #ffffff;
+$radius:    14px;
+$radius-sm: 8px;
+$shadow:    0 1px 3px rgba(15,28,53,.06), 0 4px 16px rgba(15,28,53,.04);
+$shadow-md: 0 8px 32px rgba(15,28,53,.14);
+$mono:      'JetBrains Mono', 'Courier New', monospace;
+$font:      'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+
+/* ── Picker wrapper ── */
+.drPicker {
+  position: relative;
+  display: inline-block;
+}
+
+.datePickerDropdown {
+  animation: dropIn_d78c222e .18s ease;
+  background: #fff;
+  border: 1px solid #e2e8f2;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(15, 28, 53, .14);
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 520px;
+  z-index: 9999;
+}
+
+/* ── Trigger button ── */
+.drTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: $white;
+  border: 1px solid $border2;
+  border-radius: $radius-sm;
+  padding: 7px 13px;
+  cursor: pointer;
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 600;
+  color: $text;
+  box-shadow: $shadow;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  min-width: 210px;
+  user-select: none;
+
+  &:hover {
+    border-color: $blue;
+    box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.08);
+  }
+
+  &.open {
+    border-color: $blue;
+    box-shadow: 0 0 0 3px rgba(26, 110, 245, 0.1);
+  }
+}
+
+.drCalIcon { font-size: 14px; }
+
+.drLabel { flex: 1; }
+
+.drLabelText {
+  font-size: 12px;
+  font-weight: 600;
+  color: $text;
+}
+
+.drRangeDisplay {
+  font-size: 10px;
+  color: $text3;
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.drChevron {
+  font-size: 10px;
+  color: $text3;
+  transition: transform 0.2s ease;
+
+  .open & {
+    transform: rotate(180deg);
+  }
+}
+
+/* ── Dropdown panel ── */
+.drDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow-md;
+  z-index: 9999;  /* High z-index for SPFX panel overlays */
+  width: 520px;
+  animation: dropIn 0.18s ease;
+
+  @media (max-width: 600px) {
+    width: calc(100vw - 32px);
+    right: -8px;
+  }
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Layout: presets + calendar ── */
+.drLayout {
+  display: flex;
+}
+
+/* ── Presets panel ── */
+.drPresets {
+  width: 150px;
+  flex-shrink: 0;
+  border-right: 1px solid $border;
+  padding: 12px 0;
+}
+
+.drPresetGroup {
+  padding: 0 12px 4px;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $text3;
+  margin-top: 8px;
+
+  &:first-child { margin-top: 0; }
+}
+
+.drPresetItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $text2;
+  background: none;
+  border: none;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  font-family: $font;
+  transition: all 0.12s ease;
+
+  &:hover {
+    background: $blue-lt;
+    color: $blue;
+  }
+
+  &.active {
+    background: $blue-lt;
+    color: $blue;
+    font-weight: 700;
+    border-left-color: $blue;
+  }
+}
+
+/* ── Calendar panel ── */
+.drCalendars {
+  flex: 1;
+  padding: 16px;
+}
+
+.drCalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.drMonthNav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drMonthLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: $text;
+  min-width: 110px;
+  text-align: center;
+}
+
+.drNavBtn {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 4px 9px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition: all 0.12s ease;
+  color: $text2;
+  font-family: $font;
+
+  &:hover {
+    background: $blue-lt;
+    border-color: $blue;
+    color: $blue;
+  }
+}
+
+.selectHint {
+  font-size: 10px;
+  color: $blue;
+  font-weight: 600;
+  background: $blue-lt;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+/* ── Calendar grid ── */
+.drCalGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.drDayName {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: $text3;
+  padding: 4px 0;
+}
+
+.drDay {
+  text-align: center;
+  font-size: 11.5px;
+  padding: 6px 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  color: $text2;
+  position: relative;
+
+  &:hover { background: $blue-lt; color: $blue; }
+}
+
+.otherMonth {
+  color: $text3;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.todayDay {
+  font-weight: 700;
+  color: $blue;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: $blue;
+    border-radius: 50%;
+  }
+}
+
+.selectedStart,
+.selectedEnd {
+  background: $blue !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.inRange {
+  background: $blue-lt;
+  color: $blue;
+  border-radius: 0;
+}
+
+.selectedStart { border-radius: 6px 0 0 6px; }
+.selectedEnd   { border-radius: 0 6px 6px 0; }
+
+/* Single day selection (start == end) */
+.selectedStart.selectedEnd { border-radius: 6px; }
+
+.disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Footer ── */
+.drFooter {
+  padding: 12px 16px;
+  border-top: 1px solid $border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.drRangeInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drInputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.drInputLabel {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $text3;
+}
+
+.drInput {
+  font-family: $mono;
+  font-size: 11px;
+  padding: 5px 9px;
+  border: 1px solid $border;
+  border-radius: 6px;
+  color: $text;
+  background: $white;
+  width: 100px;
+  outline: none;
+  transition: border-color 0.12s ease;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 0 2px rgba(26, 110, 245, 0.1);
+  }
+}
+
+.drArrow {
+  font-size: 12px;
+  color: $text3;
+  margin-top: 14px;
+}
+
+.drFooterBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.drCancel {
+  background: $bg;
+  border: 1px solid $border;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: $text2;
+  font-family: $font;
+  transition: all 0.12s ease;
+
+  &:hover { background: $bg2; }
+}
+
+.drApply {
+  background: $blue;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  font-family: $font;
+  transition: opacity 0.15s ease;
+
+  &:hover { opacity: 0.88; }
+  &:active { opacity: 0.75; }
+}

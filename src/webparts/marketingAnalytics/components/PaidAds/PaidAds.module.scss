@@ -1,0 +1,598 @@
+// ─── Variables ────────────────────────────────────────────────────────────────
+
+$font-stack:         'Inter', 'Segoe UI', system-ui, sans-serif;
+
+$color-bg:           #f8fafc;
+$color-white:        #fff;
+$color-border:       #e2e8f0;
+$color-border-light: #f1f5f9;
+$color-text-dark:    #0f172a;
+$color-text-mid:     #374151;
+$color-text-muted:   #64748b;
+$color-text-faint:   #94a3b8;
+
+$color-red:          #e11d48;
+$color-blue:         #1a6ef5;
+$color-indigo:       #4f46e5;
+$color-violet:       #7c3aed;
+$color-green:        #059669;
+$color-teal:         #0891b2;
+$color-amber:        #d97706;
+
+$radius-card:        14px;
+$radius-pill:        20px;
+$radius-icon:        10px;
+$shadow-card:        0 2px 10px rgba(0, 0, 0, 0.05);
+
+$pills: (
+  "blue":   (#eff6ff, $color-blue),
+  "indigo": (#eef2ff, $color-indigo),
+  "violet": (#f5f3ff, $color-violet),
+  "green":  (#f0fdf4, $color-green),
+  "teal":   (#f0fdfa, $color-teal),
+  "amber":  (#fffbeb, $color-amber),
+  "gray":   (#f8fafc, $color-text-muted),
+);
+
+// ─── Mixins ───────────────────────────────────────────────────────────────────
+
+@mixin card {
+  background:    $color-white;
+  border-radius: $radius-card;
+  border:        1px solid $color-border;
+  box-shadow:    $shadow-card;
+}
+
+@mixin flex-row($align: center, $justify: flex-start) {
+  display:         flex;
+  align-items:     $align;
+  justify-content: $justify;
+}
+
+@mixin icon-box($size: 36px, $font-size: 17px) {
+  width:           $size;
+  height:          $size;
+  border-radius:   $radius-icon;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+  font-size:       $font-size;
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+
+
+.filterActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.platformFilter {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #dbe2ea;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+  }
+}
+
+.resetBtn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: #dc2626;
+  }
+}
+.paidAds {
+  font-family: $font-stack;
+  background: $color-bg;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  &--mounted {
+    opacity: 1;
+  }
+}
+
+// ─── Top Bar ──────────────────────────────────────────────────────────────────
+
+.topBar {
+  @include flex-row(center, space-between);
+  background:    $color-white;
+  border-bottom: 1px solid $color-border;
+  padding:       0 20px;
+  height:        48px;
+  gap:           12px;
+  flex-wrap:     wrap;
+}
+
+.topBar__left {
+  @include flex-row(center, flex-start);
+  gap: 8px;
+}
+
+.topBar__title {
+  font-size:   14px;
+  font-weight: 700;
+  color:       $color-text-dark;
+}
+
+.topBar__sep {
+  color:     $color-border;
+  font-size: 12px;
+}
+
+.topBar__subs {
+  font-size: 12px;
+  color:     $color-text-faint;
+}
+
+.topBar__right {
+  @include flex-row(center, flex-start);
+  gap: 8px;
+}
+
+// ─── Date Pill ────────────────────────────────────────────────────────────────
+
+.datePill {
+  @include flex-row(center, flex-start);
+  gap:           6px;
+  background:    $color-white;
+  border:        1px solid $color-border;
+  border-radius: 8px;
+  padding:       5px 10px;
+  font-size:     12px;
+  color:         $color-text-mid;
+  cursor:        pointer;
+  white-space:   nowrap;
+}
+
+.datePill__label {
+  font-size:   12px;
+  font-weight: 600;
+  color:       $color-text-dark;
+}
+
+.datePill__range {
+  font-size: 11px;
+  color:     $color-text-faint;
+}
+
+.datePill__chevron {
+  font-size: 10px;
+  color:     $color-text-faint;
+}
+
+// ─── Buttons ──────────────────────────────────────────────────────────────────
+
+.btnConnect {
+  @include flex-row(center, flex-start);
+  gap:           5px;
+  background:    $color-white;
+  border:        1px solid $color-border;
+  border-radius: 8px;
+  padding:       5px 12px;
+  font-size:     12px;
+  font-weight:   500;
+  color:         $color-text-mid;
+  cursor:        pointer;
+  font-family:   $font-stack;
+
+  &:hover { background: $color-bg; }
+}
+
+.btnRefresh {
+  @include flex-row(center, flex-start);
+  gap:           5px;
+  background:    $color-blue;
+  border:        none;
+  border-radius: 8px;
+  padding:       6px 14px;
+  font-size:     12px;
+  font-weight:   600;
+  color:         $color-white;
+  cursor:        pointer;
+  font-family:   $font-stack;
+
+  &:hover { background: darken($color-blue, 8%); }
+}
+
+// ─── Inner Header ─────────────────────────────────────────────────────────────
+
+.innerHeader {
+  @include flex-row(center, space-between);
+  background:    $color-white;
+  border-bottom: 1px solid $color-border-light;
+  padding:       12px 20px;
+}
+
+.innerHeader__left {
+  @include flex-row(center, flex-start);
+  gap: 10px;
+}
+
+.innerHeader__icon {
+  @include icon-box(36px, 18px);
+  border-radius: 10px;
+  background:    #fff0f3;
+  box-shadow:    0 2px 8px rgba($color-red, 0.12);
+}
+
+.innerHeader__title {
+  font-size:   15px;
+  font-weight: 700;
+  color:       $color-text-dark;
+}
+
+.innerHeader__sub {
+  font-size: 12px;
+  color:     $color-text-faint;
+  margin-top: 1px;
+}
+
+.btnExcel {
+  @include flex-row(center, flex-start);
+  gap:           6px;
+  background:    #f0fdf4;
+  border:        1px solid #bbf7d0;
+  border-radius: 8px;
+  padding:       5px 12px;
+  font-size:     12px;
+  font-weight:   600;
+  color:         $color-green;
+  cursor:        pointer;
+  font-family:   $font-stack;
+
+  &:hover { background: #dcfce7; }
+}
+
+
+// ─── KPI Strip ────────────────────────────────────────────────────────────────
+
+.kpiStrip {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   14px;
+  margin-bottom:         16px;
+
+  @media (max-width: 1100px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width:  600px) { grid-template-columns: 1fr; }
+}
+
+// ─── KPI Card ─────────────────────────────────────────────────────────────────
+
+.kpiCard {
+  @include card;
+  position:       relative;
+  overflow:       hidden;
+  padding:        16px 18px 14px;
+}
+
+.kpiCard__top {
+  @include flex-row(center, space-between);
+  margin-bottom: 10px;
+}
+
+.kpiCard__icon {
+  @include icon-box(36px, 17px);
+}
+
+.kpiCard__menu {
+  color:     $color-text-faint;
+  font-size: 16px;
+  cursor:    pointer;
+  line-height: 1;
+  user-select: none;
+}
+
+.kpiCard__delta {
+  font-size:     11px;
+  font-weight:   700;
+  padding:       3px 8px;
+  border-radius: $radius-pill;
+
+  &--up   { color: $color-green; background: #f0fdf4; }
+  &--flat { color: $color-text-muted; background: $color-bg; }
+}
+
+.kpiCard__label {
+  font-size:      11px;
+  font-weight:    500;
+  color:          $color-text-faint;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom:  4px;
+}
+
+.kpiCard__value {
+  font-size:     28px;
+  font-weight:   800;
+  color:         $color-text-dark;
+  line-height:   1;
+  margin-bottom: 4px;
+}
+
+.kpiCard__sub {
+  font-size: 11px;
+  color:     $color-text-faint;
+}
+
+.kpiCard__bar {
+  position:      absolute;
+  bottom:        0;
+  left:          0;
+  right:         0;
+  height:        3px;
+  border-radius: 0 0 $radius-card $radius-card;
+}
+
+// ─── Charts Row ───────────────────────────────────────────────────────────────
+
+.chartsRow {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   14px;
+  margin-bottom:         16px;
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+// ─── Chart Card ───────────────────────────────────────────────────────────────
+
+.chartCard {
+  @include card;
+  padding:   18px;
+  min-width: 0;
+}
+
+.chartCard__title {
+  font-size:   13px;
+  font-weight: 700;
+  color:       $color-text-dark;
+}
+
+.chartCard__sub {
+  font-size:    11px;
+  color:        $color-text-faint;
+  margin-top:   2px;
+  margin-bottom: 14px;
+}
+
+.chartCard__canvas {
+  position:   relative;
+  height:     220px;
+  width:      100%;
+
+  :global(.p-chart) {
+    width:  100%;
+    height: 220px;
+
+    canvas {
+      width:      100% !important;
+      max-height: 220px;
+    }
+  }
+}
+
+.chartCard__empty {
+  @include flex-row(center, center);
+  height:    220px;
+  color:     $color-text-faint;
+  font-size: 13px;
+}
+
+// ─── Campaign Table ───────────────────────────────────────────────────────────
+
+.campaignTable {
+  @include card;
+  padding:       18px;
+  margin-bottom: 16px;
+}
+
+.campaignTable__header {
+  @include flex-row(center, space-between);
+  margin-bottom: 14px;
+}
+
+.campaignTable__title {
+  font-size:   13px;
+  font-weight: 700;
+  color:       $color-text-dark;
+}
+
+.campaignTable__sub {
+  font-size:  11px;
+  color:      $color-text-faint;
+  margin-top: 2px;
+}
+
+.campaignTable__scroll {
+  overflow-x: auto;
+}
+
+.campaignTable__empty {
+  text-align: center;
+  padding:    40px 0;
+  color:      $color-text-faint;
+  font-size:  14px;
+}
+
+.tbl {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       12px;
+
+  thead tr { background: $color-bg; }
+
+  th {
+    padding:        9px 12px;
+    text-align:     left;
+    font-size:      10px;
+    font-weight:    700;
+    color:          $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom:  2px solid $color-border;
+    white-space:    nowrap;
+  }
+
+  td { padding: 11px 12px; }
+
+  tbody tr {
+    border-bottom: 1px solid $color-border-light;
+    transition:    background 0.15s;
+
+    &:last-child { border-bottom: none; }
+    &:hover      { background: $color-bg; }
+  }
+}
+
+.cell--name  { font-weight: 600; color: $color-text-dark; font-size: 13px; }
+.cell--num   { color: $color-text-mid; }
+.cell--leads { font-weight: 700; color: $color-text-mid; font-size: 14px; }
+.cell--muted { color: $color-text-faint; }
+
+// ─── Upload Footer ────────────────────────────────────────────────────────────
+
+.uploadFooter {
+  @include flex-row(center, flex-start);
+  gap:        6px;
+  border-top: 1px dashed $color-border;
+  padding-top: 10px;
+  margin-top:  4px;
+  font-size:  11px;
+  color:      $color-text-faint;
+}
+
+// ─── Pill ─────────────────────────────────────────────────────────────────────
+
+.pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: $radius-pill;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  @each $name, $pair in $pills {
+    &--#{$name} {   // ✅ no warning now
+      background: nth($pair, 1);
+      color: nth($pair, 2);
+    }
+  }
+}
+
+.dashboard {
+  padding: 20px;
+  background: #f5f7fb;
+}
+
+/* KPI GRID */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* KPI CARD */
+.kpiCard {
+  
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid #e6eaf2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ICON */
+.iconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* CONTENT */
+.kpiContent {
+  flex: 1;
+}
+
+.kpiLabel {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.kpiValue {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 4px 0;
+  color: #111827;
+}
+
+.kpiSub {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.kpiDelta {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.up {
+  color: #16a34a;
+}
+
+.down {
+  color: #dc2626;
+}
+
+/* CHART CARD */
+.chartCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #e6eaf2;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.chartHeader {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 10px;
+}

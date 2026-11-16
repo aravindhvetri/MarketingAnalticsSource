@@ -1,0 +1,344 @@
+/* ───────── VARIABLES ───────── */
+$blue: #2563eb;
+$green: #16a34a;
+$orange: #f59e0b;
+$red: #ef4444;
+$violet: #7c3aed;
+$teal: #0891b2;
+$amber: #d97706;
+$rose: #e11d48;
+
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$text-muted: #94a3b8;
+
+$border: #e5e7eb;
+$bg-page: #f1f5f9;
+
+/* ───────── ROOT ───────── */
+.leadsDashboard {
+  font-family: "Segoe UI", system-ui;
+  background: $bg-page;
+  padding: 20px;
+}
+
+/* ───────── HEADER ───────── */
+.secHeader {
+  background: white;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secTitleWrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.secIcon {
+  width: 36px;
+  height: 36px;
+  background: #ede9fe;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.secSub {
+  font-size: 12px;
+  color: $text-secondary;
+}
+
+.secActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ───────── BUTTONS ───────── */
+.primaryBtn {
+  background: $blue;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.secondaryBtn {
+  border: 1px solid $border;
+  background: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* ───────── BADGE ───────── */
+.sourceBadge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.badgeGreen {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ───────── LOADING ───────── */
+.loadingBar {
+  height: 3px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.loadingFill {
+  height: 100%;
+  width: 40%;
+  background: $blue;
+  animation: move 1s infinite alternate;
+}
+
+@keyframes move {
+  from { transform: translateX(-30%); }
+  to { transform: translateX(120%); }
+}
+
+/* ───────── GRID ───────── */
+.g4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mt {
+  margin-top: 16px;
+}
+
+/* ───────── KPI ───────── */
+.kpi {
+  background: white;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+}
+
+.kpiTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.kpiIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpiDelta {
+  font-size: 12px;
+}
+
+.deltaUp {
+  color: $green;
+}
+
+.deltaFlat {
+  color: $text-muted;
+}
+
+.kpiLabel {
+  font-size: 11px;
+  color: $text-muted;
+  text-transform: uppercase;
+}
+
+.kpiVal {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.kpiSub {
+  font-size: 12px;
+  color: $text-muted;
+}
+
+.kpiAccent {
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ───────── CARD ───────── */
+.card {
+  background: white;
+  border: 1px solid $border;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.cardHead {
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cardSub {
+  font-size: 12px;
+  color: $text-muted;
+}
+
+/* ───────── CHART ───────── */
+.chartWrapper {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartFix {
+  width: 100%;
+}
+
+/* ───────── STATS ───────── */
+.statRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.statBox {
+  flex: 1;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.statVal {
+  font-weight: 700;
+}
+
+.statLbl {
+  font-size: 11px;
+  color: $text-muted;
+}
+
+/* ───────── LEADS ───────── */
+.leadStat {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid $border;
+}
+
+.leadIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leadInfo {
+  flex: 1;
+}
+
+.leadName {
+  font-weight: 600;
+}
+
+.leadMeta {
+  font-size: 12px;
+  color: $text-muted;
+}
+
+.leadCount {
+  font-weight: 700;
+}
+
+/* ───────── TABLE ───────── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    font-size: 11px;
+    color: $text-secondary;
+    padding: 10px;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+}
+
+/* ───────── PILLS ───────── */
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pillBlue { background: #eff6ff; color: $blue; }
+.pillGreen { background: #ecfdf5; color: $green; }
+.pillViolet { background: #f5f3ff; color: $violet; }
+.pillTeal { background: #f0fdfa; color: $teal; }
+.pillAmber { background: #fffbeb; color: $amber; }
+.pillRose { background: #fef2f2; color: $rose; }
+
+/* ───────── EMPTY + NOTE ───────── */
+.emptyState {
+  text-align: center;
+  padding: 20px;
+  color: $text-muted;
+}
+
+.uploadNote {
+  margin-top: 10px;
+  font-size: 12px;
+  color: $text-muted;
+}
+
+.chartWrapper {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* make chart clean like design */
+.chartWrapper canvas {
+  max-width: 100% !important;
+  height: 240px !important;
+}

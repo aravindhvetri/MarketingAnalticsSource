@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "marketing-analytics-client-side-solution",
+    "id": "cb50f941-6b25-4dd0-844a-d7da53c5ce79",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.22.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "MarketingAnalytics description"
+      },
+      "longDescription": {
+        "default": "MarketingAnalytics description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "marketing-analytics Feature",
+        "description": "The feature that activates elements of the marketing-analytics solution.",
+        "id": "f41dc967-f219-4100-b81d-0f67f1fadb0c",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/marketing-analytics.sppkg"
+  }
+}
